@@ -7,7 +7,7 @@ STIG Type: STIG Readiness Guide
 This is a hardening playbook that utilizes Ansible to perform automated remediation for STIG compliance of the VMware Aria Operations for Logs 8.x Appliance STIG Readiness Guide.
 
 ## Supported Versions
-- VMware Aria Operations for Logs 8.14  
+- VMware Aria Operations for Logs 8.14-8.18  
 
 ## !!Important!!
 - Please read through the README carefully and familiarize yourself with the playbook and ansible before running this playbook
@@ -23,9 +23,9 @@ This is a hardening playbook that utilizes Ansible to perform automated remediat
 ## Playbook Structure
 
 - playbook.yml - Main playbook to run
-- /roles/<role name>/defaults/main.yml - Default variables to use during the run of the playbook
-- /roles/<role name>/tasks/main.yml - Default role task file
-- /roles/<role name>/<role name>.yml - task definitions for the role
+- /roles/\<role name>/defaults/main.yml - Default variables to use during the run of the playbook
+- /roles/\<role name>/tasks/main.yml - Default role task file
+- /roles/\<role name>/\<role name>.yml - task definitions for the role
 
 ## How to run
 
