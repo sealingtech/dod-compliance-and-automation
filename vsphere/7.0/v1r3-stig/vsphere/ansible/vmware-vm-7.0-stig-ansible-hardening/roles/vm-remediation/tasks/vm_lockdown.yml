@@ -6,6 +6,10 @@
       $exclusion_list = "{{ exclusion_list }}";
       $vms = Get-VM | where {$_.name -notMatch $exclusion_list} | Select-Object -ExpandProperty Name;
       $vms | Out-File /tmp/vm_machines.txt
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - get_vms | bool
   args:
@@ -120,6 +124,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000006 | bool
   tags:
@@ -163,6 +171,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000008 | bool
   notify:
@@ -235,6 +247,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000010 | bool
   tags:
@@ -319,6 +335,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000012 | bool
   tags:
@@ -403,6 +423,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000018 | bool
   tags:
@@ -483,6 +507,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000024 | bool
   tags:
@@ -502,6 +530,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000025 | bool
   tags:
@@ -568,6 +600,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5
+  delay: 30
   when:
     - vmch_70_000029 | bool
   tags:
