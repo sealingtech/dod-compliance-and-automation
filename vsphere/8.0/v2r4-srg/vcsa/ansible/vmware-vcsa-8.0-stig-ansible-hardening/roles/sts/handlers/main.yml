@@ -1,0 +1,14 @@
+---
+
+- name: restart sts
+  ansible.builtin.command: vmon-cli --restart sts
+  register: output
+  changed_when: output.rc == 0
+  retries: 5
+  delay: 30
+  until: output.rc == 0
+
+- name: restart rsyslog
+  ansible.builtin.systemd:
+    name: rsyslog
+    state: restarted
