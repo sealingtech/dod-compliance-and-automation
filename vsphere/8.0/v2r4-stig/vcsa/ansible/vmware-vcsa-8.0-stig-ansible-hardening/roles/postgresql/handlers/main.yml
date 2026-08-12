@@ -4,7 +4,10 @@
   ansible.builtin.command: vmon-cli --restart vmware-vpostgres
   register: output
   changed_when: output.rc == 0
-
+  retries: 5
+  delay: 30 
+  until: output.rc == 0
+  
 - name: reload vpostgres config
   ansible.builtin.command: /opt/vmware/vpostgres/current/bin/psql -U postgres -c "SELECT pg_reload_conf();"
   register: output
