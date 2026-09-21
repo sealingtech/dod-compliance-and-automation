@@ -1,0 +1,38 @@
+---
+# Connection settings
+vcenter_hostname: "vcentername.test.local"
+vcenter_username: "administrator@vsphere.local"
+vcenter_password: "CHANGE_ME"          
+validate_certs: false
+
+# VM discovery
+get_vms: true
+vm_list: true                           # gate for "Get All VM Hostnames Part 2"
+exclusion_list: "^$"                    # regex of VM names to skip, e.g. "template|jumpbox"
+
+# Remediation values (mirrors $vmconfig in the source PS script)
+vmotion_encryption: "opportunistic"     # disabled | required | opportunistic
+ft_encryption: "ftEncryptionOpportunistic"  # ftEncryptionDisabled | ftEncryptionRequired | ftEncryptionOpportunistic
+vm_logging: true
+
+# Per-check enable/disable toggles
+vmch_80_000189: true   # Copy operations disabled
+vmch_80_000191: true   # Drag and drop disabled
+vmch_80_000192: true   # Paste operations disabled
+vmch_80_000193: true   # Virtual disk shrinking disabled
+vmch_80_000194: true   # Virtual disk wiping disabled
+vmch_80_000195: true   # Console connection sharing limited
+vmch_80_000196: true   # VMX info message size limited
+vmch_80_000197: true   # Unauthorized device removal/connection/modification prevented
+vmch_80_000198: true   # VM cannot obtain host info from hypervisor
+vmch_80_000199: true   # Shared salt values disabled
+vmch_80_000201: true   # Guest OS locked on last console disconnect
+vmch_80_000202: true   # 3D features disabled
+vmch_80_000203: false   # vMotion encryption enabled
+vmch_80_000204: true   # Fault Tolerance encryption enabled
+vmch_80_000205: true   # Log size configured
+vmch_80_000206: true   # Log retention configured
+vmch_80_000207: true   # Logging enabled
+
+# Not remediated by this playbook (manual review required):
+# VMCH-80-000200, 000208, 000209, 000210, 000211, 000212, 000213, 000214
