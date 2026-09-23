@@ -6,10 +6,6 @@
       $exclusion_list = "{{ exclusion_list }}";
       $vms = Get-VM | where {$_.name -notMatch $exclusion_list} | Select-Object -ExpandProperty Name;
       $vms | Out-File /tmp/vm_machines.txt
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - get_vms | bool
   args:
@@ -40,10 +36,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000001 | bool
   tags:
@@ -61,10 +53,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000002 | bool
   tags:
@@ -82,10 +70,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000003 | bool
   tags:
@@ -103,10 +87,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000004 | bool
   tags:
@@ -124,10 +104,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000005 | bool
   tags:
@@ -144,10 +120,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000006 | bool
   tags:
@@ -165,10 +137,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000007 | bool
   tags:
@@ -197,10 +165,6 @@
     executable: /usr/bin/pwsh
   when:
     - vmch_70_000008 | bool
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   notify:
     - start_vms
   tags:
@@ -227,10 +191,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000009 | bool
   notify:
@@ -275,10 +235,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000010 | bool
   tags:
@@ -321,10 +277,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000011 | bool
   tags:
@@ -367,10 +319,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000012 | bool
   tags:
@@ -388,10 +336,6 @@
         value: "1"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000013 | bool
   tags:
@@ -407,10 +351,6 @@
     advanced_settings:
       - key: tools.setinfo.sizeLimit
         value: "1048576"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   with_items:
     - "{{ vm_machines.stdout_lines }}"
   when:
@@ -430,10 +370,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000016 | bool
   tags:
@@ -451,10 +387,6 @@
         value: "FALSE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000017 | bool
   tags:
@@ -471,10 +403,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000018 | bool
   tags:
@@ -513,10 +441,6 @@
         value: "TRUE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000022 | bool
   tags:
@@ -534,10 +458,6 @@
         value: "FALSE"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000023 | bool
   tags:
@@ -563,10 +483,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000024 | bool
   tags:
@@ -586,10 +502,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000025 | bool
   tags:
@@ -607,10 +519,6 @@
         value: "2048000"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000026 | bool
   tags:
@@ -628,10 +536,6 @@
         value: "10"
   with_items:
     - "{{ vm_machines.stdout_lines }}"
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000027 | bool
   tags:
@@ -664,10 +568,6 @@
       }
   args:
     executable: /usr/bin/pwsh
-  register: task_result
-  until: task_result is not failed
-  retries: 5 
-  delay: 30
   when:
     - vmch_70_000029 | bool
   tags:

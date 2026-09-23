@@ -23,6 +23,10 @@
       }
   args:
     executable: /usr/bin/pwsh
+  register: task_result
+  until: task_result is not failed
+  retries: 5 
+  delay: 30
 
 - name: delete exclusion list
   ansible.builtin.file:
